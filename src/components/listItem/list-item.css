@@ -1,0 +1,36 @@
+.list-item {
+    width: auto;
+    height: auto;
+    background-color: white;
+    border: 2px solid var(--borderColor);
+    border-radius: 7px;
+    padding: 15px 20px 15px 30px;
+}
+.list-item--clicked{
+    background-color: var(--bodyColor);
+}
+
+.list-item__wrapper {
+    overflow: hidden;
+}
+
+.list-item__body span{
+    color: var(--textColor);
+}
+.time{
+    position: relative;
+    overflow:hidden; 
+
+}
+.time.overflows {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.4rem;
+}
+
+.list-item:hover {
+    border: 2px solid var(--primaryColor);
+
+}

@@ -1,0 +1,32 @@
+.btn {
+    width: auto;
+    height: 30px;
+    border-radius: 15px;
+    padding: 0px 20px 0px 20px;
+    outline: none;
+    cursor: pointer;
+}
+.btn--default{
+    color: var(--textColor);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: transparent;
+}
+
+.btn--primary {
+    color: var(--textColor);
+    border: 1px solid var(--borderColor);
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: var(--SecondaryBtnBgColor);
+}
+
+
+.btn--secondary {
+    color: #fff;
+    background-color: var(--primaryColor);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 300;
+}

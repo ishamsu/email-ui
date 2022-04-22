@@ -1,0 +1,17 @@
+.filter{
+    width: 100%;
+    height: 60px;
+    position: sticky;
+    top: -1px;                       /* ➜ the trick */
+}
+.filter__wrapper{
+    padding: 10px;
+    z-index: 9999;
+}
+.filter.isSticky{
+    background-color: white;
+    border: 1px solid var(--borderColor);
+    border-radius: 7px;
+    color: black;
+    z-index: 9999;
+  }
