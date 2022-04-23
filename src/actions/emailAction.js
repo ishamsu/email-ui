@@ -1,6 +1,6 @@
 import axios from "axios";
 import { arrayDifference } from "../utils/helperFunctions";
-import { GET_EMAILS,GET_EMAIl_CONTENT,GET_READ_EMAILS,DELETE_READ_MAIL } from "./types";
+import { GET_EMAILS,GET_EMAIl_CONTENT,GET_READ_EMAILS,DELETE_READ_MAIL,FAV_EMAIL,UNFAV_MAIL } from "./types";
 
 export const getAllEmails = () => (dispatch) => {
   return axios
@@ -38,7 +38,12 @@ export const updateUnReadMail = (id) => (dispatch) => {
   dispatch({ type: DELETE_READ_MAIL, payload: id});
 
 };
-export const favEmail = () => (dispatch) => {
+export const favEmail = (id) => (dispatch) => {
+  dispatch({ type: FAV_EMAIL, payload: id});
+  
+};
+export const unFavMail = (id) => (dispatch) => {
+  dispatch({ type: UNFAV_MAIL, payload: id});
   
 };
 export const clearEmailContent = () => (dispatch) => {

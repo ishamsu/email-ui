@@ -1,12 +1,13 @@
 import { readMail } from "../actions/emailAction";
-import { GET_EMAILS,GET_EMAIl_CONTENT,GET_READ_EMAILS,DELETE_READ_MAIL } from "../actions/types";
+import { GET_EMAILS,GET_EMAIl_CONTENT,GET_READ_EMAILS,DELETE_READ_MAIL,FAV_EMAIL,UNFAV_MAIL } from "../actions/types";
 import { arrayDifference } from "../utils/helperFunctions";
 
 const initialState = {
   all:false,
   activeEmailContent: false,
   readMail: [],
-  unRead: []
+  unRead: [],
+  fav:[]
 };
 
 export default function (state = initialState, action) {
@@ -41,8 +42,36 @@ export default function (state = initialState, action) {
           })
         return {
           ...state,
+          // readMail: action.payload,
           unRead: array
         };
+        case FAV_EMAIL:
+          let favArrayUnRead=[]
+          state.unRead.forEach((item,key)=>{
+          if(item.id==action.payload){
+            favArrayUnRead.push(item);
+          }
+        })
+        
+        return {
+          ...state,
+          fav: favArrayUnRead,
+          
+        };
+
+        case UNFAV_MAIL:
+        //   let unFavArray=[...state.unRead]
+        //   unFavArray.forEach((item,key)=>{
+        //   if(item.id==action.payload){
+        //     unFavArray.splice(key, 1,{...item, ...{"fav": false}});
+        //   }
+        // })
+        //   return {
+        //     ...state,
+        //     unRead: unFavArray,
+        //     // read: 
+        //   };
+          
     default:
       return state;
   }

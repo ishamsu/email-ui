@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReadableTimeAndDate } from '../../utils/helperFunctions';
 
 
-const ListItem = ({ onCardClick, data,active,foo }) => {
+const ListItem = ({ onCardClick, data,active,foo,navbar }) => {
     const dispatch = useDispatch();
 
 
@@ -23,19 +23,22 @@ const ListItem = ({ onCardClick, data,active,foo }) => {
                 onCardClick(data?.id);
                 console.log("Clicked item", data)
                if(foo!==null){
-                dispatch(updateUnReadMail(foo))
-
+                   if(navbar!=="Read" && navbar!=="Favourite"){
+                    dispatch(updateUnReadMail(foo))
+                   }
                }
-               
                 if(!active){
-                    
+                    if(navbar!=="Read" && navbar!=="Favourite"){
+                        dispatch(readMail(data))
+
+                    }
                     dispatch(getEmailContent(data?.id, data?.subject, data?.date))
-                    dispatch(readMail(data))
                 }
                 else{
-                   
+                    if(navbar!=="Read" && navbar!=="Favourite"){
+                        dispatch(updateUnReadMail(data?.id))
+                    }
                     dispatch(clearEmailContent(data?.id))
-                    dispatch(updateUnReadMail(data?.id))
 
                 }
 

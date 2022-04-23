@@ -1,10 +1,14 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { favEmail } from '../../actions/emailAction';
 import { getReadableTimeAndDate } from '../../utils/helperFunctions';
 import Avatar from '../avatar/avatar';
 import Button from '../button/button';
 import "./item-content.css"
 
-const ItemContent = ({content}) => {
+const ItemContent = ({content, onClickFavBtn}) => {
+    const [btnActive, setBtnActive]= useState(false)
+
+
     return (
         <>
             <div className='item-content'>
@@ -16,9 +20,12 @@ const ItemContent = ({content}) => {
                         <div className='d-flex flex-row space-between'>
                             <h3 className='mt-1 '>{ content.subject}</h3>
                             <Button
-                                label={"Mark as favourite"}
+                                label={!btnActive ? "Mark as fovourite" : "Favorite"}
                                 btnStyle="btn--secondary"
                                 onClick={() => {
+                                    onClickFavBtn(content.id, btnActive)
+                                    setBtnActive(!btnActive)
+                                
                                 }}
                             />
                         </div>

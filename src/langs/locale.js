@@ -1,10 +1,12 @@
+// for using difff languae(localization)
+
 const text={
     en: {
        
-       'inputLabel': `What's on your mind, Shamsu?`,
+       'navBar': ["UnRead", "Read", "Favourite"],
     },
     ml: {
-        'inputLabel': `എന്താണ് നിന്റെ മനസ്സിൽ, ഷംസു`,
+        'navBar': ["വായിക്കാത്തത്", "വായിച്ചു", "പ്രിയപ്പെട്ടത്"]
     },
    
     }
