@@ -101,7 +101,6 @@ const Home = () => {
                                     
 
                                 }}
-                                fav={fav}
                             />
                         }
                     </div>

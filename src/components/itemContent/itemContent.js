@@ -14,13 +14,19 @@ const ItemContent = ({content, onClickFavBtn}) => {
 
     useEffect(() => {
         console.log("funck",fav)
+        let tempCheck= []
         fav.forEach((item)=>{
-            console.log("funck",item.id,content.id)
-            if(item.id==content.id){
-                setBtnActive(true)
-            }
+            console.log("funck",item.id,content)
+                tempCheck.push(item.id)
         })
-    }, [fav]);
+        if(tempCheck.includes(content.id)){
+            setBtnActive(true)
+        }
+        else{
+            setBtnActive(false)
+
+        }
+    }, [content]);
 
 
     return (
@@ -41,6 +47,7 @@ const ItemContent = ({content, onClickFavBtn}) => {
                                         onClickFavBtn(content.id, btnActive)
                                         setBtnActive(!btnActive)
                                     }
+                                  
                                    
                                 
                                 }}
