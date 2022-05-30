@@ -47,7 +47,7 @@ export default function (state = initialState, action) {
         };
         case FAV_EMAIL:
           let favArrayUnRead=[]
-          state.unRead.forEach((item,key)=>{
+          state.all.forEach((item,key)=>{
           if(item.id==action.payload){
             favArrayUnRead.push(item);
           }
@@ -55,7 +55,7 @@ export default function (state = initialState, action) {
         
         return {
           ...state,
-          fav: favArrayUnRead,
+          fav: [...state.fav,...favArrayUnRead],
           
         };
 

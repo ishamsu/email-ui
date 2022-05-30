@@ -30,3 +30,10 @@
     font-size: 1rem;
     font-weight: 300;
 }
+.btn--disable {
+    color: rgb(133, 133, 133);
+    background-color: rgb(215, 215, 215);
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-weight: 300;
+}

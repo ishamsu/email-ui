@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { favEmail } from '../../actions/emailAction';
 import { getReadableTimeAndDate } from '../../utils/helperFunctions';
 import Avatar from '../avatar/avatar';
@@ -7,12 +8,25 @@ import "./item-content.css"
 
 const ItemContent = ({content, onClickFavBtn}) => {
     const [btnActive, setBtnActive]= useState(false)
+    let fav = useSelector((state) => state.emails.fav);
+
+  
+
+    useEffect(() => {
+        console.log("funck",fav)
+        fav.forEach((item)=>{
+            console.log("funck",item.id,content.id)
+            if(item.id==content.id){
+                setBtnActive(true)
+            }
+        })
+    }, [fav]);
 
 
     return (
         <>
             <div className='item-content'>
-                <div className='item-content__wrapper mt-1 d-flex flex-row mr-1' >
+                <div className='item-content__wrapper d-flex flex-row mr-1' >
                     <Avatar
                         label={"s"}
                     />
@@ -20,11 +34,14 @@ const ItemContent = ({content, onClickFavBtn}) => {
                         <div className='d-flex flex-row space-between'>
                             <h3 className='mt-1 '>{ content.subject}</h3>
                             <Button
-                                label={!btnActive ? "Mark as fovourite" : "Favorite"}
-                                btnStyle="btn--secondary"
+                                label={!btnActive ? "Mark as fovourite" : "Favorited"}
+                                btnStyle={!btnActive ? "btn--secondary" : "btn--disable"}
                                 onClick={() => {
-                                    onClickFavBtn(content.id, btnActive)
-                                    setBtnActive(!btnActive)
+                                    if(!btnActive){
+                                        onClickFavBtn(content.id, btnActive)
+                                        setBtnActive(!btnActive)
+                                    }
+                                   
                                 
                                 }}
                             />

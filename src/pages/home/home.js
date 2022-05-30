@@ -37,7 +37,6 @@ const Home = () => {
                     break;
                 case "Favourite":
                     setFilterContent(fav)
-
                     break;
                 default:
                     break;
@@ -99,8 +98,10 @@ const Home = () => {
                                     else {
                                         // dispatch(unFavMail(item))
                                     }
+                                    
 
                                 }}
+                                fav={fav}
                             />
                         }
                     </div>

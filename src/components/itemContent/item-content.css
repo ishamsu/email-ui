@@ -8,6 +8,7 @@
     border-radius: 7px;
     padding: 15px 20px 15px 20px;
     position: fixed;
+    margin-top: 4.6rem;
 }
 .item-content__overflow-container{
     max-height: 75vh;
